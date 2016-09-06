@@ -1,28 +1,39 @@
 void setup()
 {
+	size(400,400);
 	noLoop();
 }
 void draw()
 {
-	//your code here
+	background(0,0,175);
+	Die dice = new Die (200,200);
+	dice.roll();
+	dice.show();
 }
 void mousePressed()
 {
 	redraw();
 }
-class Die //models one single dice cube
+class Die 
 {
-	//variable declarations here
-	Die(int x, int y) //constructor
+	int result=0;
+	int ix;
+	int iy;
+	Die(int x, int y) 
 	{
-		//variable initializations here
+		roll();
+		ix=x;
+		iy=y;
 	}
 	void roll()
 	{
-		//your code here
+		result =result+(int) ((Math.random()*6)+1);
+		
 	}
 	void show()
 	{
-		//your code here
+
+		rect(200,200,50,50);
+		
 	}
 }
