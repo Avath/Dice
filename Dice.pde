@@ -1,14 +1,20 @@
 void setup()
 {
 	size(400,400);
+
 	noLoop();
 }
 void draw()
-{
+{ 
 	background(0,0,175);
-	Die dice = new Die (200,200);
+	for(int i=100; i<300; i+=70){
+		for(int j=100;j<300;j+=70){
+	Die dice = new Die (i, j);
+	
 	dice.roll();
 	dice.show();
+	}
+}
 }
 void mousePressed()
 {
@@ -16,24 +22,45 @@ void mousePressed()
 }
 class Die 
 {
-	int result=0;
+	int result;
 	int ix;
 	int iy;
 	Die(int x, int y) 
 	{
 		roll();
 		ix=x;
-		iy=y;
+		iy=y;  
 	}
 	void roll()
 	{
-		result =result+(int) ((Math.random()*6)+1);
+		result =(int) ((Math.random()*6)+1);
 		
 	}
 	void show()
 	{
-
-		rect(200,200,50,50);
+         fill(225);
+		rect(ix,iy,50,50,10);
 		
+		if(result==1||result==3||result==5){
+			fill(0);
+			ellipse(ix+25 ,iy+25, 10,10);
+		}
+		if(result!=1){
+			fill(0);
+			ellipse(ix+10 ,iy+40, 10,10);
+			ellipse(ix+40, iy+10,10, 10);
+		}
+		
+		if(result>3){
+			fill(0);
+			ellipse(ix+10 ,iy+10, 10,10);
+			ellipse(ix+40 ,iy+40, 10,10);
+		}
+		if(result==6){
+			fill(0);
+			ellipse(ix+10 ,iy+25, 10,10);
+			ellipse(ix+40 ,iy+25, 10,10);
+			
+		}
 	}
 }
