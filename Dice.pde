@@ -1,3 +1,5 @@
+int total=0;
+int result;
 void setup()
 {
 	size(400,400);
@@ -7,22 +9,31 @@ void setup()
 void draw()
 { 
 	background(0,0,175);
+
 	for(int i=100; i<300; i+=70){
 		for(int j=100;j<300;j+=70){
 	Die dice = new Die (i, j);
 	
+	
 	dice.roll();
 	dice.show();
+	fill(225,0,0);
+	rect(0,0,100,100);
+	total=result+total;
+		textSize(41);
+		text(total,20,20);
 	}
+
 }
 }
 void mousePressed()
 {
 	redraw();
+	total=0;
 }
 class Die 
 {
-	int result;
+	
 	int ix;
 	int iy;
 	Die(int x, int y) 
@@ -62,5 +73,6 @@ class Die
 			ellipse(ix+40 ,iy+25, 10,10);
 			
 		}
+
 	}
 }
