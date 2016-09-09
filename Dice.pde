@@ -1,5 +1,6 @@
-int total=0;
+float total=0;
 int result;
+float average;
 void setup()
 {
 	size(400,400);
@@ -10,18 +11,21 @@ void draw()
 { 
 	background(0,0,175);
 
-	for(int i=100; i<300; i+=70){
-		for(int j=100;j<300;j+=70){
+	for(int i=50; i<350; i+=70){
+		for(int j=50;j<350;j+=70){
 	Die dice = new Die (i, j);
 	
 	
 	dice.roll();
 	dice.show();
 	fill(225,0,0);
-	rect(0,0,100,100);
+	rect(0,0,400,50);
+	fill(0,225,0);
 	total=result+total;
-		textSize(41);
-		text(total,20,20);
+	average=total/25;
+		textSize(30);
+		text("Total:"+(int)total,20,30);
+		text("Average:"+average, 200,30);
 	}
 
 }
