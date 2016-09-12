@@ -1,6 +1,7 @@
 float total=0;
 int result;
 float average;
+int r, g ,b =0;
 void setup()
 {
 	size(400,400);
@@ -9,10 +10,10 @@ void setup()
 }
 void draw()
 { 
-	background(0,0,175);
+	background(r,g,b);
 
-	for(int i=50; i<350; i+=70){
-		for(int j=50;j<350;j+=70){
+	for(int i=20; i<350; i+=50){
+		for(int j=50;j<400;j+=50){
 	Die dice = new Die (i, j);
 	
 	
@@ -22,10 +23,22 @@ void draw()
 	rect(0,0,400,50);
 	fill(0,225,0);
 	total=result+total;
-	average=total/25;
+	average=total/49;
 		textSize(30);
 		text("Total:"+(int)total,20,30);
-		text("Average:"+average, 200,30);
+		text("Average:"+average, 175,30);
+		if(average<3.3){
+			r=225;
+		}
+		else if(average<3.7&&average>3.3){
+			g=225;
+			r=0;
+		}
+		else  {
+			b=225;
+			r=0;
+			g=0;
+		}
 	}
 
 }
