@@ -1,16 +1,18 @@
 float total=0;
 int result;
 float average;
-int r, g ,b =0;
+
+float q=200;
 void setup()
 {
 	size(400,400);
-
+q-=5;
 	noLoop();
 }
 void draw()
 { 
-	background(r,g,b);
+	background(0,0,(int)((Math.random()*226)+1));
+	
 
 	for(int i=20; i<350; i+=50){
 		for(int j=50;j<400;j+=50){
@@ -27,26 +29,21 @@ void draw()
 		textSize(30);
 		text("Total:"+(int)total,20,30);
 		text("Average:"+average, 175,30);
-		if(average<3.3){
-			r=225;
-		}
-		else if(average<3.7&&average>3.3){
-			g=225;
-			r=0;
-		}
-		else  {
-			b=225;
-			r=0;
-			g=0;
-		}
+		
 	}
 
 }
+fill(0,0,0,q);
+
+rect(0,0,400,400);
+
 }
 void mousePressed()
 {
 	redraw();
 	total=0;
+	q=200;
+	
 }
 class Die 
 {
