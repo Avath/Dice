@@ -1,13 +1,15 @@
 float total=0;
 int result;
 float average;
-
-float q=200;
+Boolean w=true;
+float q=0;
 void setup()
 {
 	size(400,400);
-q-=5;
+	
 	noLoop();
+
+	
 }
 void draw()
 { 
@@ -31,20 +33,20 @@ void draw()
 		text("Average:"+average, 175,30);
 		
 	}
-
 }
+
 fill(0,0,0,q);
 
 rect(0,0,400,400);
-
 }
 void mousePressed()
 {
 	redraw();
 	total=0;
-	q=200;
+	q+=10;
 	
 }
+
 class Die 
 {
 	
